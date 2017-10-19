@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ngrok,代理," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="胡言乱语不知所云">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="很久没有弄ngrok了，每次弄的时候都忘了具体咋个配置的，现将具体配置记录如下：">
+<meta name="keywords" content="ngrok,代理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ngrok配置">
+<meta property="og:url" content="http://yoursite.com/2017/10/19/ngrok配置/index.html">
 <meta property="og:site_name" content="胡言乱语不知所云">
+<meta property="og:description" content="很久没有弄ngrok了，每次弄的时候都忘了具体咋个配置的，现将具体配置记录如下：">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-10-19T04:56:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="胡言乱语不知所云">
+<meta name="twitter:title" content="ngrok配置">
+<meta name="twitter:description" content="很久没有弄ngrok了，每次弄的时候都忘了具体咋个配置的，现将具体配置记录如下：">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/19/ngrok配置/"/>
 
 
 
 
 
-  <title>胡言乱语不知所云</title>
+  <title>ngrok配置 | 胡言乱语不知所云</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,9 +228,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -256,9 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/19/ngrok配置/" itemprop="url">ngrok配置</a></h1>
+          <h1 class="post-title" itemprop="name headline">ngrok配置</h1>
         
 
         <div class="post-meta">
@@ -330,16 +332,10 @@
       
 
       
-        
-          <p>很久没有弄ngrok了，每次弄的时候都忘了具体咋个配置的，现将具体配置记录如下：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/19/ngrok配置/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>很久没有弄ngrok了，每次弄的时候都忘了具体咋个配置的，现将具体配置记录如下：<br><a id="more"></a><br><strong>以下配置均是在ngrok1.7下</strong></p>
+<h2 id="服务端启动命令"><a href="#服务端启动命令" class="headerlink" title="服务端启动命令"></a>服务端启动命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/src/ngrok/bin/ngrokd -tlsKey=&quot;assets/server/tls/snakeoil.key&quot; -tlsCrt=&quot;assets/server/tls/snakeoil.crt&quot; -domain=&quot;ssh.taoker-online.com&quot;  -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot; -tunnelAddr=&quot;:8083&quot;  &amp;</div></pre></td></tr></table></figure>
+<h2 id="本地启动命令"><a href="#本地启动命令" class="headerlink" title="本地启动命令"></a>本地启动命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./ngrok  -config ngrok.cfg -subdomain k2450 8085</div></pre></td></tr></table></figure>
+<h3 id="ngrok-cfg详细"><a href="#ngrok-cfg详细" class="headerlink" title="ngrok.cfg详细"></a>ngrok.cfg详细</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">server_addr: &quot;taoker-online.com:8083&quot;</div><div class="line">trust_host_root_certs: false</div><div class="line">tunnels:</div><div class="line">  http:</div><div class="line">    subdomain: &quot;b&quot;</div><div class="line">    proto:</div><div class="line">      http: &quot;8085&quot;</div><div class="line"></div><div class="line">  https:</div><div class="line">    subdomain: &quot;b&quot;</div><div class="line">    proto:</div><div class="line">      https: &quot;8085&quot;</div><div class="line"></div><div class="line">  ssh:</div><div class="line">    remote_port: 2222</div><div class="line">    proto:</div><div class="line">      tcp: &quot;22&quot;</div><div class="line"></div><div class="line"></div><div class="line">  redis:</div><div class="line">    remote_port: 6370</div><div class="line">    proto:</div><div class="line">      tcp: &quot;6379&quot;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -354,306 +350,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/scrapy多IP切换/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yongliang.Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="胡言乱语不知所云">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/26/scrapy多IP切换/" itemprop="url">scrapy多IP切换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T09:33:34+08:00">
-                2017-04-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/ngrok/" rel="tag"># ngrok</a>
           
-
+            <a href="/tags/代理/" rel="tag"># 代理</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>最近在公司部署scrapy爬虫的时候遇到个问题，公司给了3个机器，每个机器10个IP，为了反爬，在爬虫请求异常时切换IP，scrapy官方文档写的非常简介，调试N久终于成功，现讲心得记录如下：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/26/scrapy多IP切换/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/26/scrapy多IP切换/" rel="next" title="scrapy多IP切换">
+                <i class="fa fa-chevron-left"></i> scrapy多IP切换
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/26/westworld/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yongliang.Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="胡言乱语不知所云">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/26/westworld/" itemprop="url">看西部世界的臆想</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-26T17:20:34+08:00">
-                2016-12-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>很久很久不记录点什么了。最近WestWorld第一季已经完结，神剧质量自然不用多说。神剧之所以成为神剧，更多还是在于能够产生共鸣，能够产生思考。那么意识到底是什么？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/26/westworld/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -663,10 +391,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -674,6 +403,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -694,8 +427,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -771,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端启动命令"><span class="nav-number">1.</span> <span class="nav-text">服务端启动命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地启动命令"><span class="nav-number">2.</span> <span class="nav-text">本地启动命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ngrok-cfg详细"><span class="nav-number">2.1.</span> <span class="nav-text">ngrok.cfg详细</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -898,6 +656,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
