@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="胡言乱语不知所云">
 <meta property="og:description" content="最近入坑机器学习经典算法，记录点相关的东西记录点自己的想法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-04T01:51:49.000Z">
+<meta property="og:updated_time" content="2017-11-04T02:52:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于信息增益的理解">
 <meta name="twitter:description" content="最近入坑机器学习经典算法，记录点相关的东西记录点自己的想法">
@@ -336,6 +336,7 @@
 <h2 id="关于信息增益"><a href="#关于信息增益" class="headerlink" title="关于信息增益"></a>关于信息增益</h2><p><a href="https://www.zhihu.com/question/22104055" target="_blank" rel="external">引用自知乎</a><br>熵：表示随机变量的不确定性。<br>条件熵：在一个条件下，随机变量的不确定性。<br>信息增益：熵 - 条件熵在一个条件下，信息不确定性减少的程度！</p>
 <p>通俗地讲，X(明天下雨)是一个随机变量，X的熵可以算出来， Y(明天阴天)也是随机变量，在阴天情况下下雨的信息熵我们如果也知道的话（此处需要知道其联合概率分布或是通过数据估计）即是条件熵。两者相减就是信息增益！原来明天下雨例如信息熵是2，条件熵是0.01（因为如果是阴天就下雨的概率很大，信息就少了），这样相减后为1.99，在获得阴天这个信息后，下雨信息不确定性减少了1.99！是很多的！所以信息增益大！也就是说，阴天这个信息对下雨来说是很重要的！所以在特征选择的时候常常用信息增益，如果IG（信息增益大）的话那么这个特征对于分类来说很关键，决策树就是这样来找特征的。</p>
 <h2 id="关于联合概率分布"><a href="#关于联合概率分布" class="headerlink" title="关于联合概率分布"></a>关于联合概率分布</h2><h2 id="关于bagging"><a href="#关于bagging" class="headerlink" title="关于bagging"></a>关于bagging</h2><p>列的bagging（随机森林）、行的bagging</p>
+<h2 id="关于串行、并行"><a href="#关于串行、并行" class="headerlink" title="关于串行、并行"></a>关于串行、并行</h2><p>整体是串行，串行中每一步部分可以并行，和工程进度管理类似，根本还是在于时间不可逆，只能向前，不能往后</p>
 <p>其他东西先挖坑，后面空了慢慢再填</p>
 
       
@@ -529,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于信息增益"><span class="nav-number">1.</span> <span class="nav-text">关于信息增益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于联合概率分布"><span class="nav-number">2.</span> <span class="nav-text">关于联合概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于bagging"><span class="nav-number">3.</span> <span class="nav-text">关于bagging</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于信息增益"><span class="nav-number">1.</span> <span class="nav-text">关于信息增益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于联合概率分布"><span class="nav-number">2.</span> <span class="nav-text">关于联合概率分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于bagging"><span class="nav-number">3.</span> <span class="nav-text">关于bagging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于串行、并行"><span class="nav-number">4.</span> <span class="nav-text">关于串行、并行</span></a></li></ol></div>
             
 
           </div>
